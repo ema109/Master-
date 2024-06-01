@@ -1,4 +1,4 @@
-# 
+#Creating the Jsat and Uexb for analysing
 def dataset(x, y, y_down, y_up, eg, gd):
     dy = 0.1*(y_up-y_down)
     
