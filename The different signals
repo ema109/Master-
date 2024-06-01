@@ -1,0 +1,14 @@
+# 
+def dataset(x, y, y_down, y_up, eg, gd):
+    dy = 0.1*(y_up-y_down)
+    
+    Uexb = (gd["n"].isel(x=x, y=y_up) - gd["n"].isel(x=x, y=y_down))/dy
+
+    Jsat = eg["n"].isel(x=x, y=y)
+
+    Vup = gd["n"].isel(x=x, y=y_up)
+
+    Vdown = gd["n"].isel(x=x, y=y_down)
+
+    return Uexb, Jsat, Vup, Vdown, dy
+
