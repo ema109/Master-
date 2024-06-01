@@ -1,0 +1,37 @@
+#The pulseshapes implemented for this reaserch, from https://github.com/uit-cosmo/blobmodel
+
+@staticmethod
+    def _get_dipole_shape(theta: np.ndarray, **kwargs) -> np.ndarray:
+        """Compute the diople pulse shape as a derivative of a gaussian pulse shape.
+
+        Parameters
+        ----------
+        theta : np.ndarray
+            Array of theta values.
+        kwargs
+            Additional keyword arguments.
+
+        Returns
+        -------
+        np.ndarray
+            Array representing the dipole pulse shape.
+        """
+        return theta/2 * np.exp(-(theta**2)/2)
+    
+    @staticmethod
+    def _get_velocity_shape(theta: np.ndarray, **kwargs) -> np.ndarray:
+        """Compute the velocity pulse shape as a derivative of a dipole pulse shape.
+
+        Parameters
+        ----------
+        theta : np.ndarray
+            Array of theta values.
+        kwargs
+            Additional keyword arguments.
+
+        Returns
+        -------
+        np.ndarray
+            Array representing the velocity pulse shape.
+        """
+        return 0.5 * np.exp(-(theta**2)/2) * (-(theta**2) + 1 ) 
